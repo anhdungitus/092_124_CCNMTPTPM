@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DatVeMayBay.Models.Flight>
+<div class="panel panel-primary ">
+    <a href="/prep/signin" class="btn btn-sm btn-primary">Sign In</a>
+    <a href="/prep/signout" class="btn btn-sm btn-primary">Sign Out</a>
+    User: @(HttpContext.Current.User.Identity.Name)
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">Danh sách chuyến bay</div>
+    <table class="table table-striped">
+        <tr><th>Mã</th><th>Nơi đi</th><th>Nơi đến</th><th>Ngày</th><th>Giờ</th><th>Hạng</th><th>Mức giá</th><th>Số lượng ghế</th><th>Giá bán</th></tr>
+        @foreach (var f in Model)
+        {
+            <tr>
+                <td>@f.Ma</td>
+                <td>@f.NoiDi</td>
+                <td>@f.NoiDen</td>
+                <td>@f.Ngay</td>
+                <td>@f.Gio</td>
+                <td>@f.Hang</td>
+                <td>@f.MucGia</td>
+                <td>@f.SoLuongGhe</td>
+                <td>@f.GiaBan</td>
+            </tr>
+        }
+    </table>
+</div>
+@using (Html.BeginForm("SaveProduct", "Prep"))
+{
+    <input type="hidden" name="Ma" value="Zippy Running Shoes" />
+    <input type="hidden" name="NoiDi" value="Running" />
+    <input type="hidden" name="NoiDen" value="Set a new Record Time" />
+    <input type="hidden" name="Ngay" value="" />
+    <input type="hidden" name="Gio" value="" />
+    <input type="hidden" name="Hang" value="" />
+    <input type="hidden" name="MucGia" value="" />
+    <input type="hidden" name="SoLuongGhe" value="" />
+    <input type="hidden" name="GiaBan" value="" />
+    <button class="btn btn-primary" type="submit">Create</button>
+    <a href="/prep/deleteproduct/2" class="btn btn-primary">Delete</a>
+}
