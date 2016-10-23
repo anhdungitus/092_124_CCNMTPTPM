@@ -1,0 +1,329 @@
+﻿
+@{
+    ViewBag.Title = "timchuyenbay";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="Plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Plugins/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="Plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="Plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" />
+    <link href="Plugins/bootstrap-table/bootstrap-table.css" rel="stylesheet" />
+    <link href="Plugins/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="Plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="Plugins/jquery-sweet-alert/sweetalert.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            background: url(Image/BayDangCap.jpg);
+            background-repeat: no-repeat;
+            font-size: 14px;
+            margin: 0px;
+            padding: 0px;
+            -webkit-text-size-adjust: none;
+            background-size: cover;
+            background-position-y: -50px;
+        }
+    </style>    
+    
+    <title>Đặt vé máy bay</title>
+</head>
+<body>
+    <div id="navbar" style="width: 100%;background: #f9f9f9;height: 42px">
+        <div class="container" style="padding-top: 5px;color: #707070;">
+            <div class="pull-left">
+                <h1 style="font-size:12px;font-weight: normal;margin:9px 0">Hệ thống đặt vé máy bay rẻ nhất</h1>
+            </div>
+            <div class="pull-right" style="padding-top: 5px">
+                <div class="nav-user guest">
+                    <a style="padding-left: 10px" href="#" >Đăng nhập</a>  
+                    <a style="padding-left: 10px" href="#">Đăng ký</a>
+                </div>
+            </div>
+            <div class="pull-right">
+                <select class="form-control">                    
+                    <option >Tiếng Việt</option>
+                    <option >English</option>
+                </select>                   
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div id="step"  style="padding-top: 20px; color: white">
+        <div class="container" >
+            <div class="row" style="padding-top: 20px;background: #491D74; height: 70px">
+                <div class="col-md-2" >
+                    <div  style="color: red;cursor: pointer" onclick="ShowTimKiem()">
+                        <span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Tìm kiếm chuyến bay</div>
+                </div>
+                <div class="col-md-1" style="color: yellow; font-size: 20px">
+                    <div class="glyphicon glyphicon-chevron-right"></div>
+                </div>                
+                <div class="col-md-2" >
+                    <div id="divColorDatCho" style="color: yellow;cursor: pointer" onclick="ShowDatCho()">
+                        <span class="glyphicon glyphicon-bed"></span>&nbsp;&nbsp;Đặt chỗ</div>
+                </div>
+                <div class="col-md-1" style="color: yellow; font-size: 20px">
+                    <div class="glyphicon glyphicon-chevron-right"></div>
+                </div>
+                <div class="col-md-2" >
+                    <div id="divColorTTKH" style="color: yellow;cursor: pointer" onclick="ShowThongTinKH()">
+                        <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Thông tin hành khách</div>
+                </div>
+                <div class="col-md-1" style="color: yellow; font-size: 20px">
+                    <div class="glyphicon glyphicon-chevron-right"></div>
+                </div>
+                <div class="col-md-2">
+                    <div id="divColorHoanTat" style="color: yellow">
+                        <span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Đặt vé thành công</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="main" style="padding-top: 20px">
+        <div class="container" style="">
+            <div id="divTimKiem" class="row" style="padding: 0px 15px;">
+                <div class="col-md-6" style="background: #E4D2E3; padding: 10px; min-height: 263px">                   
+                    <div class="row" style="padding-top: 10px">
+                        <div class="col-md-2">
+                            <div style="padding-top: 8px">Điểm đi</div>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control">
+                                <option>TPHCM</option>
+                                <option>Hà Nội</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <div style="padding-top: 8px">Điểm đến</div>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control">
+                                <option>Hà Nội</option>
+                                <option>TPHCM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-top: 10px">
+                        <div class="col-md-2">
+                            <div style="padding-top: 8px">Ngày đi</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class='input-group date' id='dtpdate'>
+                                <input type='text' id="txtdate" class="form-control" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div style="padding-top: 8px">Hạng vé</div>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control">
+                                <option value="Y">Thường</option>
+                                <option value="C">VIP</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-top: 10px" id="divCustomer">
+                        <div class="col-md-4">
+                            <div>Người lớn (>=12T)</div>
+                            <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <div>Trẻ em (2-11 Tuổi)</div>
+                            <select class="form-control">
+                                <option>0</option>
+                                <option>1</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                           <div>Em bé (< 23 Tháng)</div>
+                            <select class="form-control">
+                                <option>0</option>
+                                <option>1</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-top: 15px">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <button class="btn btn-block btn-warning" onclick="ShowDatCho()">Tìm chuyến bay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding: 0px">
+                    <img src="Image/ve.jpg" style="width: 100%; padding-left: 15px" class="img-responsive center-block"/>
+                </div>
+            </div>
+
+            <div class="row" style="padding: 20px 15px;">
+                <div id="divDatCho" class="col-md-12 hidden" style="background: white;padding-bottom: 20px">
+                    <h3 style="font-weight: bold">Chọn chuyến bay</h3>
+                    <table id="tblDanhSachChuyenBay">
+                        <thead>
+                            <tr>
+                                <th data-width="25%" data-field="MaCB">Mã chuyến bay</th>
+                                <th data-width="25%" data-field="GioDi">Giờ đi</th>
+                                <th data-width="25%" data-field="GioDen">Giờ đến</th>
+                                <th data-width="25%" data-field="Gia">Giá</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div id="divChoNgoi" class="col-md-12 hidden" style="background: white; padding: 20px">
+                        <h3 style="font-weight: bold">Đặt chỗ</h3>
+                        <div class="row" >
+                            <div class="col-md-1">
+                                <div style="padding-top: 8px">Dãy ghế</div>
+                            </div>
+                            <div class="col-md-2">  
+                                <select class="form-control">
+                                    <option>A</option>
+                                    <option>B</option>
+                                    <option>C</option>
+                                    <option>D</option>
+                                </select>
+                            </div>
+                            <div class="col-md-1">
+                                <div style="padding-top: 8px">Số thứ tự</div>
+                            </div>
+                            <div class="col-md-2">
+                               <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>                        
+                        </div>
+                        <div style="padding-top: 10px;text-align: center">
+                            <button class="btn btn-lg btn-warning" onclick="ShowThongTinKH()">
+                                Tiếp tục
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div id="divThongTinKH" class="col-md-12 hidden" style="background: white; padding: 20px">
+                    <h3 style="font-weight: bold">Thông tin hành khách</h3>
+                    <div class="row" >
+                        <div class="col-md-1">
+                            <div style="padding-top: 8px">Họ</div>
+                        </div>
+                        <div class="col-md-2">  
+                            <input class="form-control" type="text"/>
+                        </div>
+                        <div class="col-md-1">
+                            <div style="padding-top: 8px">Tên</div>
+                        </div>
+                        <div class="col-md-2">
+                           <input class="form-control" type="text"/>
+                        </div>
+                        <div class="col-md-1">
+                            <div style="padding-top: 8px">Địa chỉ</div>
+                        </div>
+                        <div class="col-md-5">
+                           <input class="form-control" type="text"/>
+                        </div>                        
+                    </div>
+                    <div class="row" style="padding-top: 10px">
+                        <div class="col-md-1">
+                            <div style="padding-top: 8px">SĐT</div>
+                        </div>
+                        <div class="col-md-2">
+                           <input class="form-control" type="text"/>
+                        </div>
+                        <div class="col-md-1">
+                            <div style="padding-top: 8px">Email</div>
+                        </div>
+                        <div class="col-md-2">
+                           <input class="form-control" type="text"/>
+                        </div>
+                    </div>
+                    <div style="padding-top: 10px;text-align: center">
+                        <button class="btn btn-lg btn-success" onclick="btnHoanTat()">
+                            <span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Hoàn tất
+                        </button>
+                    </div>                    
+                </div>
+                <div id="divHoanTat" class="hidden text-center">
+                    <h2>Đăng kí thành công</h2>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <script src="Plugins/jquery.min.js"></script>
+    <script src="Plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="Plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Plugins/bootstrap-datetimepicker/js/moment.min.js"></script>
+    <script src="Plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="Plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="Plugins/bootstrap-table/bootstrap-table.js"></script>
+    <script src="Plugins/jquery-sweet-alert/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        $('#dtpdate').datetimepicker({
+            format: 'DD/MM/YYYY',
+            defaultDate: new Date()
+        });
+
+        $("table[id$=tblDanhSachChuyenBay]").bootstrapTable({
+            classes: 'table table-hover',
+            data: []
+        });
+
+        var data = [
+            { "MaCB": "HN", "GioDi": "12:20", "GioDen": "14:20", "Gia": "1000000" },
+            { "MaCB": "HN", "GioDi": "12:20", "GioDen": "14:20", "Gia": "1000000" },
+            { "MaCB": "HN", "GioDi": "12:20", "GioDen": "14:20", "Gia": "1000000" },
+            { "MaCB": "HN", "GioDi": "12:20", "GioDen": "14:20", "Gia": "1000000" },
+        ];        
+
+        function ShowTimKiem() {
+            $('#divTimKiem').removeClass("hidden");
+            $('#divDatCho').addClass("hidden");
+            $('#divThongTinKH').addClass("hidden");
+            $('#divHoanTat').addClass("hidden");
+        };
+
+        function ShowDatCho() {
+            $('#divTimKiem').addClass("hidden");
+            $('#divDatCho').removeClass("hidden");
+            $('#divThongTinKH').addClass("hidden");
+            $('#divHoanTat').addClass("hidden");
+            $('#divColorDatCho').css("color", "red");
+            $("table[id$=tblDanhSachChuyenBay]").bootstrapTable('load', data);
+        };
+
+        $('table[id$=tblDanhSachChuyenBay]').on('click-row.bs.table', function (row, $element, field) {
+            $('#divChoNgoi').removeClass("hidden");
+        });
+
+        function ShowThongTinKH() {
+            $('#divTimKiem').addClass("hidden");
+            $('#divDatCho').addClass("hidden");
+            $('#divThongTinKH').removeClass("hidden");
+            $('#divHoanTat').addClass("hidden");
+            $('#divColorTTKH').css("color", "red");
+        };
+
+        function btnHoanTat() {            
+            $('#divTimKiem').addClass("hidden");
+            $('#divDatCho').addClass("hidden");
+            $('#divThongTinKH').addClass("hidden");
+            $('#divHoanTat').removeClass("hidden");
+            $('#divColorHoanTat').css("color", "red");
+            sweetAlert("Đặt vé thành công", "", "success");
+        };
+    </script>
+</body>
+</html>
