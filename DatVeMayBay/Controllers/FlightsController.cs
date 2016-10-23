@@ -39,6 +39,20 @@ namespace DatVeMayBay.Controllers
             return Repository.Flights.Where(x => x.NoiDi == noidi).Select(x => x.NoiDen);
         }
 
+        [Route("{noidi}/{noiden}/{ngaydi}/{soluonghanhkhach}")]
+        [HttpGet]
+        public IEnumerable<Flight> GetFlightBySearch(string noidi, string noiden, string ngaydi, int soluonghanhkhach)
+        {
+            return Repository.Flights.Where(x => x.NoiDi == noidi && x.NoiDen == noiden && x.Ngay == ngaydi && x.SoLuongGhe - soluonghanhkhach >= 0);
+        }
+
+        [Route("{noidi}/{noiden}/{ngaydi}/{soluonghanhkhach}/{hangve}")]
+        [HttpGet]
+        public IEnumerable<Flight> GetFlightBySearch(string noidi, string noiden, string ngaydi, int soluonghanhkhach, string hangve)
+        {
+            return Repository.Flights.Where(x => x.NoiDi == noidi && x.NoiDen == noiden && x.Ngay == ngaydi && x.SoLuongGhe - soluonghanhkhach >= 0 && x.Hang == hangve);
+        } 
+
         public IHttpActionResult GetFlight(int id)
         {
             Flight result = Repository.Flights.Where(p => p.Id == id).FirstOrDefault();

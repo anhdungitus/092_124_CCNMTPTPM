@@ -44,27 +44,27 @@
                         <tr class="spaceUnder">
                             <td style="font-weight: normal;">Chọn ngày đi </td>
                             <td style="padding-left: 10px;">
-                                <input type="text" class="form-control" />
+                                <input id="ngaydi" type="text" class="form-control" />
                             </td>
                         </tr>
                         <tr id="chonngayVe" class="spaceUnder">
                             <td style="font-weight: normal;">Chọn ngày về </td>
                             <td style="padding-left: 10px;">
-                                <input type="text" class="form-control" />
+                                <input id="ngayve" type="text" class="form-control" />
                             </td>
                         </tr>
                         <tr class="spaceUnder">
                             <td>Số lượng hành khách </td>
                             <td style="padding-left: 10px;">
-                                <input type="text" class="form-control" />
+                                <input id="soluonghanhkhach" type="text" class="form-control" />
                             </td>
                         </tr>
                         <tr class="spaceUnder">
                             <td style="font-weight: normal;">Hạng vé </td>
                             <td style="padding-left: 10px;">
-                                <select class="form-control">
-                                    <option>Y (Phổ thông)</option>
-                                    <option>C (Thương gia)</option>
+                                <select id="hangve" class="form-control">
+                                    <option value="Y">Y (Phổ thông)</option>
+                                    <option value="C">C (Thương gia)</option>
                                 </select>
                             </td>
                         </tr>
@@ -80,10 +80,22 @@
             <div class="panel-footer">@@DungDat Airline</div>
         </div>
 
-        <div id="divDatCho" style="background: white;padding-bottom: 20px">
+        <div id="divDatCho" class="col-md-10" style="background: white;padding-bottom: 20px">
             <h3 style="font-weight: bold">Chọn chuyến bay</h3>
             <table id="tblDanhSachChuyenBay" class="table table-bordered" cellspacing="20">
-                <tr class="spaceUnder">
+                <tr class="spaceUnder" style="color:white; background-color: green; ">
+                    <td style="padding-left: 10px; color: white;">Mã chuyến bay</td>
+                    <td style="padding-left: 10px; color: white; ">Nơi đi</td>
+                    <td style="padding-left: 10px; color: white; ">Nơi đến</td>
+                    <td style="padding-left: 10px; color: white; ">Ngày</td>
+                    <td style="padding-left: 10px; color: white; ">Giờ</td>
+                    <td style="padding-left: 10px; color: white; ">Hạng</td>
+                    <td style="padding-left: 10px; color: white; ">Mức giá</td>
+                    <td style="padding-left: 10px; color: white; ">Số lượng ghế</td>
+                    <td style="padding-left: 10px; color: white; ">Giá bán</td>
+                    <td style="padding-left: 10px; color: white; ">Option</td>
+                </tr>
+                <tr class="hidden">
                     <td style="padding-left:10px;">Mã chuyến bay</td>
                     <td style="padding-left:10px;">Nơi đi</td>
                     <td style="padding-left:10px;">Nơi đến</td>
@@ -93,6 +105,9 @@
                     <td style="padding-left:10px;">Mức giá</td>
                     <td style="padding-left:10px;">Số lượng ghế</td>
                     <td style="padding-left:10px;">Giá bán</td>
+                    <td style="padding-left:10px;">
+                        <button id="Datcho" class="btn btn-primary">Đặt chỗ</button>
+                    </td>
                 </tr>
             </table>
         </div>
