@@ -152,6 +152,7 @@
     <Content Include="Image\airplane.png" />
     <Content Include="Image\BayDangCap.jpg" />
     <Content Include="Image\flight.jpg" />
+    <Content Include="Image\logo.png" />
     <Content Include="Image\maybay.jpg" />
     <Content Include="Image\ve.jpg" />
     <Content Include="Plugins\bootstrap-table\extensions\cookie\README.md" />
