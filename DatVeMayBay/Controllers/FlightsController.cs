@@ -20,6 +20,13 @@ namespace DatVeMayBay.Controllers
 
         [Route("")]
         [HttpGet]
+        public IEnumerable<Flight> GetAllFlight()
+        {
+            return Repository.Flights;
+        }
+
+        [Route("sanbaydi")]
+        [HttpGet]
         public IEnumerable<string> GetSanBayDi()
         {
             return Repository.Flights.Select(x => x.NoiDi);

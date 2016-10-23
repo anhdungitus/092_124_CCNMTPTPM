@@ -13,13 +13,12 @@
 @section Scripts {
     <script src="~/Scripts/homescript.js"></script>
 }
-<div class="navbar navbar-inverse" role="navigation">
-    <a class="navbar-brand" href="#">DUNG DAT AIRLINE</a>
-</div>
 <div class="container">
-    
+    <div class="navbar navbar-inverse" role="navigation">
+        <a class="navbar-brand" href="#">DUNG DAT AIRLINE</a>
+    </div>
     <div class="container">
-        <div class="panel panel-default col-md-6">
+        <div id="bangTimKiemVe" class="panel panel-default col-md-6">
             <div class="panel-heading"><h3>Đặt vé máy bay</h3></div>
             <div class="panel-body">
                 <div>
@@ -31,13 +30,15 @@
                         <tr class="spaceUnder">
                             <td>Chọn điểm đi </td>
                             <td style="padding-left: 10px;">
-                                <select class="form-control"></select>
+                                <select id="noidi" class="form-control">
+                                    <option>#</option>
+                                </select>
                             </td>
                         </tr>
                         <tr class="spaceUnder">
                             <td>Chọn điểm đến </td>
                             <td style="padding-left: 10px;">
-                                <select class="form-control"></select>
+                                <select id="noiden" class="form-control"></select>
                             </td>
                         </tr>
                         <tr class="spaceUnder">
@@ -46,7 +47,7 @@
                                 <input type="text" class="form-control" />
                             </td>
                         </tr>
-                        <tr class="spaceUnder">
+                        <tr id="chonngayVe" class="spaceUnder">
                             <td style="font-weight: normal;">Chọn ngày về </td>
                             <td style="padding-left: 10px;">
                                 <input type="text" class="form-control" />
@@ -70,13 +71,30 @@
                         <tr class="spaceUnder">
                             <td></td>
                             <td style="padding-left: 10px;">
-                                <button class="btn btn-success" >Tìm kiếm</button>
+                                <button id="btnSearch" class="btn btn-success">Tìm kiếm</button>
                             </td>
                         </tr>
                     </table>
-                </div>
+                </div> 
             </div>
             <div class="panel-footer">@@DungDat Airline</div>
+        </div>
+
+        <div id="divDatCho" style="background: white;padding-bottom: 20px">
+            <h3 style="font-weight: bold">Chọn chuyến bay</h3>
+            <table id="tblDanhSachChuyenBay" class="table table-bordered" cellspacing="20">
+                <tr class="spaceUnder">
+                    <td style="padding-left:10px;">Mã chuyến bay</td>
+                    <td style="padding-left:10px;">Nơi đi</td>
+                    <td style="padding-left:10px;">Nơi đến</td>
+                    <td style="padding-left:10px;">Ngày</td>
+                    <td style="padding-left:10px;">Giờ</td>
+                    <td style="padding-left:10px;">Hạng</td>
+                    <td style="padding-left:10px;">Mức giá</td>
+                    <td style="padding-left:10px;">Số lượng ghế</td>
+                    <td style="padding-left:10px;">Giá bán</td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>

@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 namespace DatVeMayBay.Controllers
 {
     [RoutePrefix("api/bookings")]
-    public class BookKingsController : ApiController
+    public class BooKingsController : ApiController
     {
         private IRepository Repository { get; set; }
-        public BookKingsController()
+        public BooKingsController()
         {
             Repository = (IRepository)GlobalConfiguration.Configuration.DependencyResolver.GetService(typeof(IRepository));
         }
@@ -23,6 +23,13 @@ namespace DatVeMayBay.Controllers
         public IEnumerable<Booking> GetAllBookings()
         {
             return Repository.Bookings;
+        }
+
+        [Route("{madatcho}")]
+        [HttpGet]
+        public Booking GetThongTinMaDatCho(string madatcho)
+        {
+            return Repository.Bookings.Where(x => x.Ma == madatcho).FirstOrDefault();
         }
 
         [Route("")]
