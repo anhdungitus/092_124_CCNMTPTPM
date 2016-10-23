@@ -19,13 +19,7 @@ namespace DatVeMayBay.Models
             
 
             new List<Booking> {
-                new Booking {Ma = "ABCXYZ", ThoiGianDatCho = "2016-05-01 10:00:00", TongTien = 400000, TrangThai = 1, 
-                    FlightDetails = new List<FlightDetail> 
-                    { 
-                        new FlightDetail {MaDatCho = "ABCXYZ", MaChuyenBay="BL326", Ngay="2016-10-05",Hang="Y", MucGia="E"},
-                        new FlightDetail {MaDatCho = "ABCXYZ", MaChuyenBay="BL327", Ngay="2016-10-06",Hang="Y", MucGia="E"}
-                    }
-                }
+                new Booking {Ma = "ABCXYZ", ThoiGianDatCho = "2016-05-01 10:00:00", TongTien = 400000, TrangThai = 1}
             }.ForEach(booking => context.Bookings.Add(booking));
 
             context.SaveChanges();

@@ -16,7 +16,5 @@ namespace DatVeMayBay.Models
         public int TongTien { get; set; }
         [Required]
         public int TrangThai { get; set; }
-
-        public List<FlightDetail> FlightDetails { get; set; }
     }
 }
