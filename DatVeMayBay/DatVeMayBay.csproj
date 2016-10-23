@@ -149,6 +149,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Image\airplane.png" />
+    <Content Include="Image\BayDangCap.jpg" />
+    <Content Include="Image\flight.jpg" />
+    <Content Include="Image\maybay.jpg" />
+    <Content Include="Image\ve.jpg" />
     <Content Include="Plugins\bootstrap-table\extensions\cookie\README.md" />
     <Content Include="Plugins\bootstrap-table\extensions\editable\README.md" />
     <Content Include="Plugins\bootstrap-table\extensions\export\README.md" />
@@ -335,7 +340,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Prep\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Đatvemaybay.cshtml" />
+    <Content Include="Views\Home\Datvemaybay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

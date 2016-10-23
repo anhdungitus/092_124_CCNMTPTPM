@@ -14,5 +14,10 @@ namespace DatVeMayBay.Controllers
         {
             return View();
         }
+
+        public ActionResult Datvemaybay()
+        {
+            return View();
+        }
 	}
 }
