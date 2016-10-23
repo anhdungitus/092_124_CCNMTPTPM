@@ -1,0 +1,85 @@
+﻿<head>
+    <title></title>
+    <style>
+        tr.spaceUnder > td {
+            padding-bottom: 1em;
+        }
+        .form-control {
+            width: 250px;
+        }
+    </style>
+
+</head>
+@section Scripts {
+    <script src="~/Scripts/homescript.js"></script>
+}
+<div class="navbar navbar-inverse" role="navigation">
+    <a class="navbar-brand" href="#">DUNG DAT AIRLINE</a>
+</div>
+<div class="container">
+    
+    <div class="container">
+        <div class="panel panel-default col-md-6">
+            <div class="panel-heading"><h3>Đặt vé máy bay</h3></div>
+            <div class="panel-body">
+                <div>
+                    <input type="radio" name="hiddensearchmode" value="ROUND_TRIP" id="m_ticket01" checked="checked"/><span style="padding-right: 20px;"> Khứ hồi</span>
+                    <input type="radio" name="hiddensearchmode" value="ONE_WAY" id="m_ticket02" style="padding-left: 20px;" /><span> Một chiều</span> 
+                </div>
+                <div class="content" style="padding-top: 20px;">
+                    <table cellspacing="20" style="border-spacing:0 50px;">
+                        <tr class="spaceUnder">
+                            <td>Chọn điểm đi </td>
+                            <td style="padding-left: 10px;">
+                                <select class="form-control"></select>
+                            </td>
+                        </tr>
+                        <tr class="spaceUnder">
+                            <td>Chọn điểm đến </td>
+                            <td style="padding-left: 10px;">
+                                <select class="form-control"></select>
+                            </td>
+                        </tr>
+                        <tr class="spaceUnder">
+                            <td style="font-weight: normal;">Chọn ngày đi </td>
+                            <td style="padding-left: 10px;">
+                                <input type="text" class="form-control" />
+                            </td>
+                        </tr>
+                        <tr class="spaceUnder">
+                            <td style="font-weight: normal;">Chọn ngày về </td>
+                            <td style="padding-left: 10px;">
+                                <input type="text" class="form-control" />
+                            </td>
+                        </tr>
+                        <tr class="spaceUnder">
+                            <td>Số lượng hành khách </td>
+                            <td style="padding-left: 10px;">
+                                <input type="text" class="form-control" />
+                            </td>
+                        </tr>
+                        <tr class="spaceUnder">
+                            <td style="font-weight: normal;">Hạng vé </td>
+                            <td style="padding-left: 10px;">
+                                <select class="form-control">
+                                    <option>Y (Phổ thông)</option>
+                                    <option>C (Thương gia)</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="spaceUnder">
+                            <td></td>
+                            <td style="padding-left: 10px;">
+                                <button class="btn btn-success" >Tìm kiếm</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="panel-footer">@@DungDat Airline</div>
+        </div>
+    </div>
+</div>
+
+
+
