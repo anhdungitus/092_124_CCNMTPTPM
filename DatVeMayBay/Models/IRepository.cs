@@ -12,5 +12,9 @@ namespace DatVeMayBay.Models
         IEnumerable<Booking> Bookings { get; }
         Task<int> SaveBookingAsync(Booking booking);
         Task<Booking> DeleteBookingAsync(int bookingID);
+
+        IEnumerable<FlightDetail> FlightDetails { get; }
+        Task<int> SaveFlightDetailAsync(FlightDetail flightdetail);
+        Task<FlightDetail> DeleteFlightDetailAsync(int flightdetailID);
     }
 }

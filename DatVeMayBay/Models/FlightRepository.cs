@@ -83,5 +83,42 @@ namespace DatVeMayBay.Models
             await context.SaveChangesAsync();
             return dbEntry;
         }
+
+        public IEnumerable<FlightDetail> FlightDetails
+        {
+            get { return context.FlightDetails; }
+        }
+
+        public async Task<int> SaveFlightDetailAsync(FlightDetail flightdetail)
+        {
+            if (flightdetail.Id == 0)
+            {
+                context.FlightDetails.Add(flightdetail);
+            }
+            else
+            {
+                FlightDetail dbEntry = context.FlightDetails.Find(flightdetail.Id);
+                if (dbEntry != null)
+                {
+                    dbEntry.MaChuyenBay = flightdetail.MaChuyenBay;
+                    dbEntry.MaDatCho = flightdetail.MaDatCho;
+                    dbEntry.Ngay = flightdetail.Ngay;
+                    dbEntry.Hang = flightdetail.Hang;
+                    dbEntry.MucGia = flightdetail.MucGia;
+                }
+            }
+            return await context.SaveChangesAsync();
+        }
+
+        public async Task<FlightDetail> DeleteFlightDetailAsync(int FlightdetailID)
+        {
+            FlightDetail dbEntry = context.FlightDetails.Find(FlightdetailID);
+            if (dbEntry != null)
+            {
+                context.FlightDetails.Remove(dbEntry);
+            }
+            await context.SaveChangesAsync();
+            return dbEntry;
+        }
     }
 }
