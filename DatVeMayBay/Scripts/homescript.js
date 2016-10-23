@@ -62,14 +62,38 @@
     });
 
     $("#btnSearch").click(function () {
+
         $.ajax({
-            url: "/api/flights/",
+            url: "/api/flights/" + $("#noidi option:selected").text() + "/"
+                + $("#noiden option:selected").text()
+                + "/" + $("#ngaydi").val() + "/" + $("#soluonghanhkhach").val() 
+                + "/" + $("#hangve option:selected").val(),
             type: "GET",
             dataType: "json",
             success: function (data) {
                 debugger;
                 $("#bangTimKiemVe").hide();
                 $("#divDatCho").show();
+                if (data != null)
+                    $.each(data, function (index, ve) {
+                        $("#tblDanhSachChuyenBay").append(
+                            "<tr>"
+                                +"<td style=\"padding-left:10px;\"> " + ve.Ma + "</td>"
+                                +"<td style=\"padding-left:10px;\"> " + ve.NoiDi + "</td>"
+                                +"<td style=\"padding-left:10px;\"> " + ve.NoiDen + "</td>"
+                                +"<td style=\"padding-left:10px;\"> " + ve.Ngay + "</td>"
+                                +"<td style=\"padding-left:10px;\"> " + ve.Gio + "</td>"
+                                +"<td style=\"padding-left:10px;\"> " + ve.Hang + "</td>"
+                                +"<td style=\"padding-left:10px;\"> " + ve.MucGia + "</td>"
+                                +"<td style=\"padding-left:10px;\"> " + ve.SoLuongGhe + "</td>"
+                                +"<td style=\"padding-left:10px;\"> " + ve.GiaBan + "</td>"
+
+                                +"<td style=\"padding-left:10px;\">"
+                                   + "<button id=\"Datcho\" class=\"btn btn-primary\">Đặt chỗ</button>"
+                                + "</td>"
+                           +"</tr>"
+                        );
+                    });
             },
             error: function () {
             }
