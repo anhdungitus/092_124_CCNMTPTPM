@@ -14,77 +14,87 @@
     <script src="~/Scripts/homescript.js"></script>
 }
 <div class="container">
+    <div class="header"></div>
     <div class="navbar navbar-inverse" role="navigation">
-        <a class="navbar-brand" href="#">DUNG DAT AIRLINE</a>
+        
     </div>
-    <div class="container">
-        <div id="bangTimKiemVe" class="panel panel-default col-md-6">
-            <div class="panel-heading"><h3>Đặt vé máy bay</h3></div>
-            <div class="panel-body">
-                <div>
-                    <input type="radio" name="hiddensearchmode" value="ROUND_TRIP" id="m_ticket01" checked="checked"/><span style="padding-right: 20px;"> Khứ hồi</span>
-                    <input type="radio" name="hiddensearchmode" value="ONE_WAY" id="m_ticket02" style="padding-left: 20px;" /><span> Một chiều</span> 
-                </div>
-                <div class="content" style="padding-top: 20px;">
-                    <table cellspacing="20" style="border-spacing:0 50px;">
-                        <tr class="spaceUnder">
-                            <td>Chọn điểm đi </td>
-                            <td style="padding-left: 10px;">
-                                <select id="noidi" class="form-control">
-                                    <option>#</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr class="spaceUnder">
-                            <td>Chọn điểm đến </td>
-                            <td style="padding-left: 10px;">
-                                <select id="noiden" class="form-control"></select>
-                            </td>
-                        </tr>
-                        <tr class="spaceUnder">
-                            <td style="font-weight: normal;">Chọn ngày đi </td>
-                            <td style="padding-left: 10px;">
-                                <div class='input-group date' id='dtpdate'>
-                                    <input type='text' id="ngaydi" class="form-control" />
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr id="chonngayVe" class="spaceUnder">
-                            <td style="font-weight: normal;">Chọn ngày về </td>
-                            <td style="padding-left: 10px;">
-                                <input id="ngayve" type="text" class="form-control" />
-                            </td>
-                        </tr>
-                        <tr class="spaceUnder">
-                            <td>Số lượng hành khách </td>
-                            <td style="padding-left: 10px;">
-                                <input id="soluonghanhkhach" type="text" class="form-control" />
-                            </td>
-                        </tr>
-                        <tr class="spaceUnder">
-                            <td style="font-weight: normal;">Hạng vé </td>
-                            <td style="padding-left: 10px;">
-                                <select id="hangve" class="form-control">
-                                    <option value="Y">Y (Phổ thông)</option>
-                                    <option value="C">C (Thương gia)</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr class="spaceUnder">
-                            <td></td>
-                            <td style="padding-left: 10px;">
-                                <button id="btnSearch" class="btn btn-success">Tìm kiếm</button>
-                            </td>
-                        </tr>
-                    </table>
-                </div> 
-            </div>
-            <div class="panel-footer">@@DungDat Airline</div>
-        </div>
 
+    <div class="container">
+        <div>
+            <div class=" col-md-6">
+                <div id="bangTimKiemVe" class="panel panel-primary">
+                    <div class="panel-heading"><h3>Tìm chuyến bay</h3></div>
+                    <div class="panel-body ">
+                        <div>
+                            <input type="radio" name="hiddensearchmode" value="ROUND_TRIP" id="m_ticket01" checked="checked" /><span style="padding-right: 20px;"> Khứ hồi</span>
+                            <input type="radio" name="hiddensearchmode" value="ONE_WAY" id="m_ticket02" style="padding-left: 20px;" /><span> Một chiều</span>
+                        </div>
+                        <div class="content" style="padding-top: 20px;">
+                            <table cellspacing="20" style="border-spacing:0 50px;">
+                                <tr class="spaceUnder">
+                                    <td>Chọn điểm đi </td>
+                                    <td style="padding-left: 10px;">
+                                        <select id="noidi" class="form-control">
+                                            <option>#</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="spaceUnder">
+                                    <td>Chọn điểm đến </td>
+                                    <td style="padding-left: 10px;">
+                                        <select id="noiden" class="form-control"></select>
+                                    </td>
+                                </tr>
+                                <tr class="spaceUnder">
+                                    <td style="font-weight: normal;">Chọn ngày đi </td>
+                                    <td style="padding-left: 10px;"  >
+                                        <div class='input-group date' id='dtpdate1'>
+                                            <input type='text' id="ngaydi" class="form-control" />
+                                            <span class="input-group-addon glyphicon glyphicon-calendar" style="width:50px"></span>
+                                        </div>
+                                        
+                                    </td>
+                                </tr>
+                                <tr id="chonngayVe" class="spaceUnder">
+                                    <td style="font-weight: normal;">Chọn ngày về </td>
+                                    <td style="padding-left: 10px;">
+                                        <div class='input-group date' id='dtpdate2'>
+                                            <input type='text' id="ngayve" class="form-control" />
+                                            <span class="input-group-addon glyphicon glyphicon-calendar" style="width:50px"></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="spaceUnder">
+                                    <td>Số lượng hành khách </td>
+                                    <td style="padding-left: 10px;">
+                                        <input id="soluonghanhkhach" type="text" class="form-control" />
+                                    </td>
+                                </tr>
+                                <tr class="spaceUnder">
+                                    <td style="font-weight: normal;">Hạng vé </td>
+                                    <td style="padding-left: 10px;">
+                                        <select id="hangve" class="form-control">
+                                            <option value="Y">Y (Phổ thông)</option>
+                                            <option value="C">C (Thương gia)</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="spaceUnder">
+                                    <td></td>
+                                    <td style="padding-left: 10px;">
+                                        <button id="btnSearch" class="btn btn-success">Tìm kiếm</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="panel-footer">HỆ THỐNG BÁN VÉ MÁY BAY TRỰC TUYẾN</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="../Image/ve.jpg" style="width: 100%; padding-left: 15px" class="img-responsive center-block" />
+        </div>
         <div id="divDatCho" class="col-md-10" style="background: white;padding-bottom: 20px">
             <h3 style="font-weight: bold">Chọn chuyến bay</h3>
             <table id="tblDanhSachChuyenBay" class="table table-bordered" cellspacing="20">
@@ -120,8 +130,12 @@
 </div>
 
 <script type="text/javascript">
-    $('#dtpdate').datetimepicker({
-        format: 'DD/MM/YYYY',
+    $('#dtpdate1').datetimepicker({
+        format: 'YYYY-MM-DD',
+        defaultDate: new Date()
+    });
+    $('#dtpdate2').datetimepicker({
+        format: 'YYYY-MM-DD',
         defaultDate: new Date()
     });
     </script>
